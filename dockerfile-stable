@@ -13,6 +13,9 @@ ENV HOME /var/jenkins
 # for installing openjdk
 RUN apt-get update -qq && apt-get install -qqy openjdk-8-jdk  wget curl git iptables ca-certificates apparmor
 
+# set JAVA_HOME environment variable
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
+
 # for jenkins     
 RUN echo deb https://pkg.jenkins.io/debian-stable binary/ >> /etc/apt/sources.list \
 	&& wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | apt-key add -
